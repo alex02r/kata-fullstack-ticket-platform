@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -57,8 +58,20 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
+        $data = $request->all();
+        //cerchiamo una categoria che abbia il nome che abbiamo inserito e che l'id sia diverso
+        $find_name = Category::where("name", 'LIKE', $data['name'])->where('id', '!=', $category->id)->get();
+
+        //se esiste, significa che è già presente una categoria con questo nome
+        if (count($find_name) > 0) {
+            $error = 'Hai inserito il nome di una categoria già esistente';
+            return redirect()->route('admin.categories.edit', $category)->withErrors($error);
+        }
+
+        $category->update($data);
+        return redirect()->route('admin.categories.show', $category);
 
     }
 
