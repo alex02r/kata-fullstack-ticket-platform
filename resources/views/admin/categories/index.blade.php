@@ -5,6 +5,7 @@
         <div class="row row-gap-4 justify-content-center">
             <div class="col-12">
                 <h1>Lista categorie</h1>
+                <a href="{{route('admin.categories.create')}}" class="btn btn-success">Aggiungi nuova categoria <i class="fas fa-plus"></i></a>
             </div>
             <div class="col-12 col-md-8">
                 <table class="table">
