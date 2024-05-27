@@ -5,6 +5,7 @@
         <div class="row row-gap-4 justify-content-center">
             <div class="col-12">
                 <h1>Visualizzazione Categoria</h1>
+                <a href="{{route('admin.categories.index')}}" class="btn btn-primary">Torna indietro</a>
             </div>
             <div class="col-12 col-md-4">
                 <div class="card mb-3">
