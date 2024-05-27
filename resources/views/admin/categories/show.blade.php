@@ -12,7 +12,7 @@
                     <div class="card-body">
                       <h3 class="card-title">{{ $category->name}}</h3>
                       <p class="card-text">Id della categoria: {{ $category->id }}</p>
-                      <a href="#" class="btn btn-warning">Modifica</a>
+                      <a href="{{ route('admin.categories.edit', $category) }}" class="btn btn-warning">Modifica</a>
                       <a href="#" class="btn btn-danger">Elimina</a>
                     </div>
                 </div>
