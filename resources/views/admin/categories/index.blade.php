@@ -20,7 +20,9 @@
                             <tr>
                                 <td>{{ $category->id }}</td>
                                 <td>{{ $category->name }}</td>
-                                <td>...</td>
+                                <td>
+                                    <a href="{{route("admin.categories.show", $category)}}" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i></a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
