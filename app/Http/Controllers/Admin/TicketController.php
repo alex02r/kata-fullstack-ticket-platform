@@ -19,7 +19,7 @@ class TicketController extends Controller
      */
     public function index()
     {
-       $tickets=Ticket::orderBy('id', 'DESC')->paginate(12);;
+       $tickets=Ticket::orderBy('id', 'DESC')->paginate(12);
        return view('admin.tickets.index', compact('tickets'));
     }
 
@@ -86,7 +86,9 @@ class TicketController extends Controller
      */
     public function destroy(Ticket $ticket)
     {
-        // TODO
+        $ticket->delete();
+
+        return redirect()->route('admin.tickets.index');
     }
 
 }

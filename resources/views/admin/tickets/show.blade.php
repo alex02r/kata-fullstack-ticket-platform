@@ -72,10 +72,40 @@
                         <a href="{{ route('admin.tickets.edit', $ticket) }}" class="btn btn-primary">
                             Modifica
                         </a>
+
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-link text-danger ms-auto">Elimina Ticket</button>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade text-black" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Vuoi eliminare il Ticket?</h1>
+        </div>
+        <div class="modal-body">
+          Una volta confermato l'eliminazione sarà permanente
+        </div>
+        <div class="modal-footer row g-2">
+            <div class="col">
+                <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Chiudi</button>
+            </div>
+
+          <form action="{{ route('admin.tickets.destroy', $ticket) }}" method="POST" class="col">
+            @method('DELETE')
+            @csrf
+
+            <button type="submit" class="btn btn-danger w-100">Elimina</button>
+        </form>
+          {{-- <button type="button" class="btn btn-danger col">Elimina</button> --}}
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection
