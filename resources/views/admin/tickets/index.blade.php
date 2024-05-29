@@ -2,7 +2,12 @@
 
 @section('content')
 <div class="container">
-    <table class="table">
+  <div class="row">
+    <div class="col">{{ $tickets->links() }}</div>
+    <div class="col text-end"><a href="{{route('admin.tickets.create')}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i>Crea un Ticket</a></div>
+  </div>
+
+    <table class="table text-center">
         <thead>
           <tr>
             <th scope="col">ID</th>
@@ -33,7 +38,10 @@
             @endforeach
         </tbody>
       </table>
-      {{ $tickets->links() }}
+      <div class="row">
+        <div class="col">{{ $tickets->links() }}</div>
+        <div class="col text-end"><a href="{{route('admin.tickets.create')}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i>Crea un Ticket</a></div>
+      </div>
 </div>
 @endsection
 
