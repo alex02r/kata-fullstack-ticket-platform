@@ -25,7 +25,9 @@ Route::get('/', [GuestHomeController::class, 'home'])->name('home');
 
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/home', [AdminHomeController::class, 'home'])->name('home');
+    Route::patch('/operators/{operator}/update-available', [OperatorController::class, 'updateAvailable'])->name('operators.update-available');
     Route::resource('/tickets', TicketController::class );
+    Route::resource('/operators', OperatorController::class );
 });
 
 
