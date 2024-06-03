@@ -29,6 +29,8 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::resource('/tickets', TicketController::class );
     Route::resource('/categories', CategoryController::class );
     Route::resource('/operators', OperatorController::class );
+    Route::get('/ticketsearch', [TicketController::class, 'indexsearch'])->name('tickets.indexsearch');
+
 });
 
 

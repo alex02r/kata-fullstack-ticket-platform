@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+  <a href="{{route('admin.tickets.indexsearch')}}" class="btn btn-warning">Filtra i ticket</a>
   <div class="row">
     <div class="col">{{ $tickets->links() }}</div>
     <div class="col text-end"><a href="{{route('admin.tickets.create')}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i>Crea un Ticket</a></div>

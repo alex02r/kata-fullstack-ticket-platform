@@ -91,4 +91,14 @@ class TicketController extends Controller
         return redirect()->route('admin.tickets.index');
     }
 
+    public function indexsearch()
+    {
+        $tickets=Ticket::all();
+        $categories=Category::all();
+        $priorities=Priority::all();
+        $operators=Operator::all();
+        $statuses=Status::all();
+        return view('admin.tickets.indexsearch',compact('tickets','categories','priorities','operators','statuses'));
+    }
+
 }
